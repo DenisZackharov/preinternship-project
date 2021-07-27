@@ -1,7 +1,7 @@
 <h1>Blog</h1>
 <% if user_signed_in? %>
     <span>Hello, <%= current_user.firstname%> <%= current_user.lastname%> <%= current_user.email%></span>
-    <div><%= link_to "Change profile", edit_user_registration_path %></div>
+    <div><%= link_to "Edit profile", edit_user_registration_path %></div>
 <% end %>
 <div>
 <%= link_to "About me", preinternship_about_path %>
