@@ -68,3 +68,5 @@ gem 'rubocop', '~> 1.18', require: false
 gem 'rubocop-rails', require: false
 
 gem 'rubocop-rspec', require: false
+
+gem 'bundler-audit', '~> 0.8.0'
