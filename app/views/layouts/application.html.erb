@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">  
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class:"nav-link" %>
+            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class:"nav-link", data: {confirm: "Are you sure?"} %>
           </li>
           </ul>
         </div>
