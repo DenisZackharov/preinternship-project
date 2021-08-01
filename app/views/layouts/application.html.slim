@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title
+      | Preinternship
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container-fluid
+          = link_to 'Blog', root_path, class:"navbar-brand"
+      button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+        span.navbar-toggler-icon
+      - if user_signed_in?
+        #navbarSupportedContent.collapse.navbar-collapse
+
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+
+        li.nav-item
+          = link_to 'Sign out', destroy_user_session_path, :method => :delete, class:"nav-link", data: {confirm: "Are you sure?"}
+      - else
+        #navbarSupportedContent.collapse.navbar-collapse
+        
+        li.nav-item
+          = link_to 'Sign in', new_user_session_path, class:"nav-link"
+        li.nav-item
+          = link_to 'Sign up', new_user_registration_path, class:"nav-link"
+    p.notice
+      = notice
+    p.alert
+      = alert
+    = yield

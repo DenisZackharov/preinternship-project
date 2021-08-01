@@ -76,3 +76,5 @@ gem 'bundler-audit', '~> 0.8.0'
 gem 'sassc-rails', '>= 2.1.0'
 
 gem 'jquery-rails'
+
+gem 'slim'
