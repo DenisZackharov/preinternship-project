@@ -30,4 +30,13 @@ Metrics/CyclomaticComplexity:
 
 Metrics/PerceivedComplexity:
  Max: 9
+ 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+  SupportedStyles:
+    - compact
+    - expanded
