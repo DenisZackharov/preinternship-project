@@ -57,12 +57,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "rspec", "~> 3.10"
-gem "devise"
 gem "bootstrap-sass"
+gem "bundler-audit", "~> 0.8.0"
+gem "devise"
+gem "jquery-rails"
+gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18", require: false
 gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
-gem "bundler-audit", "~> 0.8.0"
 gem "sassc-rails", ">= 2.1.0"
-gem "jquery-rails"
