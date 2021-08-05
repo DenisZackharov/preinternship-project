@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe User, type: :model do
-  describe "validations" do
+describe User do
+  describe "#valid?" do
     let(:user) { FactoryBot.build(:user) }
 
     it "is a firstname" do
