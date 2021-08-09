@@ -54,6 +54,7 @@ group :test do
   gem "database_cleaner-active_record"
   gem "email_spec"
   gem "formulaic"
+  gem "launchy"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"

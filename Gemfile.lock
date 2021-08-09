@@ -336,6 +336,7 @@ DEPENDENCIES
   formulaic
   jbuilder (~> 2.7)
   jquery-rails
+  launchy
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)

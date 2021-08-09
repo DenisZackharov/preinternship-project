@@ -1,23 +1,26 @@
 require "rails_helper"
 
 feature "Sign Up" do
-  let(:user_attributes) { attributes_for(:user).slice(:firstname, :lastname, :email, :password, :password_confirmation) }
-  let(:registered_user) { User.find_by(email: user_attributes[:email]) }
+  let(:user) { create :user, firstname: firstname, lastname: lastname, email: email, password: password, password_confirmation: password_confirmation }
+  
+  let(:firstname) { "Denis" }
+  let(:lastname) { "Zaharov" }
+  let(:email) { Faker::Internet.email }
+  let(:password) { "password" }
+  let(:password_confirmation) { password }
 
   scenario "Visitor signs up" do
     visit new_user_registration_path
 
-    fill_form(:user, user_attributes)
+    fill_in "Firstname", with: firstname
+    fill_in "Lastname", with: lastname
+    fill_in "Email", with: email
+    fill_in "Password", with: password
+    fill_in "Password confirmation", with: password_confirmation
+
     click_button "Sign up"
 
-    open_email(registered_user.email)
+    expect(page).to have_content("Welcome! You have signed up successfully.")
 
-    expect(current_email).to have_subject("Confirmation instructions")
-    expect(current_email).to have_body_text(registered_user.email)
-
-    visit_in_email("Confirm my account")
-
-    expect(page).to have_content("Your email address has been successfully confirmed")
-    expect(page).to have_text(registered_user.email)
   end
 end

@@ -17,7 +17,7 @@ describe User do
 
       let(:expected_errors) { ["Firstname can't be blank"] }
 
-      it "User not_valid" do
+      it "validates user" do
         expect(user.valid?).to be_falsey
         expect(user.errors.full_messages).to eq(expected_errors)
       end
@@ -28,7 +28,7 @@ describe User do
 
       let(:expected_errors) { ["Lastname can't be blank"] }
 
-      it "User not_valid" do
+      it "validates user" do
         expect(user.valid?).to be_falsey
         expect(user.errors.full_messages).to eq(expected_errors)
       end
@@ -39,7 +39,7 @@ describe User do
 
       let(:expected_errors) { ["Email can't be blank"] }
 
-      it "User not_valid" do
+      it "validates user" do
         expect(user.valid?).to be_falsey
         expect(user.errors.full_messages).to eq(expected_errors)
       end
@@ -50,7 +50,7 @@ describe User do
 
       let(:expected_errors) { ["Password can't be blank"] }
 
-      it "User not_valid" do
+      it "validates user" do
         expect(user.valid?).to be_falsey
         expect(user.errors.full_messages).to eq(expected_errors)
       end
@@ -61,21 +61,20 @@ describe User do
 
       let(:expected_errors) { ["Email is invalid"] }
 
-      it "User not_valid" do
+      it "validates user" do
         expect(user.valid?).to be_falsey
         expect(user.errors.full_messages).to eq(expected_errors)
       end
     end
-  end
 
-  describe "#confirmation?" do
-    it { expect(user.password).to eq(user.password_confirmation) }
-
-    context "when password not equal confirmation password" do
+    context "when confirmation password doesn't match" do
       let(:password_confirmation) { "12345" }
 
-      it "Passwords don't match" do
-        expect(user.password).not_to eq(user.password_confirmation)
+      let(:expected_errors) { ["Password confirmation doesn't match Password"] }
+
+      it "validates user" do
+        expect(user.valid?).to be_falsey
+        expect(user.errors.full_messages).to eq(expected_errors)
       end
     end
   end
