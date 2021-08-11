@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Sign Up" do
   let(:user) { create :user, firstname: firstname, lastname: lastname, email: email, password: password, password_confirmation: password_confirmation }
-  
+
   let(:firstname) { "Denis" }
   let(:lastname) { "Zaharov" }
   let(:email) { Faker::Internet.email }
@@ -21,6 +21,5 @@ feature "Sign Up" do
     click_button "Sign up"
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
-
   end
 end
