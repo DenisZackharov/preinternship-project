@@ -11,6 +11,12 @@ AllCops:
  NewCops: enable
  Exclude: 
    - db/**/*
+  
+Discourse/NoChdir:
+  Enabled: false   
+
+inherit_gem :
+   rubocop-discourse : default.yml 
    
 Rails/FilePath:
   EnforcedStyle: arguments

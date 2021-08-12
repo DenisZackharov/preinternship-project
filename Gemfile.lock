@@ -243,6 +243,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.10.0)
       parser (>= 3.0.1.1)
+    rubocop-discourse (2.4.2)
+      rubocop (>= 1.1.0)
+      rubocop-rspec (>= 2.0.0)
     rubocop-rails (2.11.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -349,6 +352,7 @@ DEPENDENCIES
   rspec (~> 3.10)
   rspec-rails (>= 3.9.0)
   rubocop (~> 1.18)
+  rubocop-discourse
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
