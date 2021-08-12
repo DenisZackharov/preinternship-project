@@ -39,7 +39,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "brakeman"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console", ">= 4.1.0"
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -65,6 +64,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "bootstrap-sass"
 gem "bundler-audit", "~> 0.8.0"
+gem "brakeman"
 gem "devise"
 gem "jquery-rails"
 gem "parser"

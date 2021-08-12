@@ -10,6 +10,7 @@ AllCops:
  DisplayCopNames: true
  NewCops: enable
  Exclude: 
+    - bin/**/*
     - config/initializers/secure_headers.rb
     - db/**/*
     - node_modules/**/*
@@ -23,9 +24,6 @@ inherit_gem :
    
 Rails/FilePath:
   EnforcedStyle: arguments
-
-Rails/Present:
- Enabled: false
 
 RSpec/Capybara/FeatureMethods:
  EnabledMethods:
@@ -52,7 +50,7 @@ Style/Documentation:
  Enabled: false
 
 Metrics/MethodLength:
- Max: 13
+ Max: 12
 
 Metrics/BlockLength:
  Enabled: false
