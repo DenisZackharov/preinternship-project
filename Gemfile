@@ -34,6 +34,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
   gem "rspec-rails", ">= 3.9.0"
+  gem "slim_lint", require: false
 end
 
 group :development do
@@ -65,6 +66,7 @@ gem "bootstrap-sass"
 gem "bundler-audit", "~> 0.8.0"
 gem "devise"
 gem "jquery-rails"
+gem "parser"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18", require: false
 gem "rubocop-rails", require: false
