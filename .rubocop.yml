@@ -24,6 +24,9 @@ inherit_gem :
 Rails/FilePath:
   EnforcedStyle: arguments
 
+Rails/Present:
+ Enabled: false
+
 RSpec/Capybara/FeatureMethods:
  EnabledMethods:
     - background
@@ -49,7 +52,7 @@ Style/Documentation:
  Enabled: false
 
 Metrics/MethodLength:
- Max: 12
+ Max: 13
 
 Metrics/BlockLength:
  Enabled: false
