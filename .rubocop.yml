@@ -10,7 +10,6 @@ AllCops:
  DisplayCopNames: true
  NewCops: enable
  Exclude: 
-    - bin/**/*
     - config/initializers/secure_headers.rb
     - db/**/*
     - node_modules/**/*
