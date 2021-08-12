@@ -7,11 +7,14 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara"
-Capybara.javascript_driver = :selenium_chrome
-Capybara.default_driver = :selenium_chrome
-Capybara.default_max_wait_time = 10
 
-Capybara.save_path = "tmp/capybara"
+Capybara.configure do |config|
+  config.javascript_driver = :selenium_chrome
+  config.default_driver = :selenium_chrome
+  config.default_max_wait_time = 10
+  config.save_path = "tmp/capybara"
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

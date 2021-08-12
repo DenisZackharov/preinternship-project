@@ -3,9 +3,9 @@ h1
 - if user_signed_in?
   span
     | Hello, 
-    = current_user.firstname
-    = current_user.lastname
-    = current_user.email
+    = current_user.firstname 
+    =< current_user.lastname 
+    =< current_user.email
   div
     = link_to "Edit profile", edit_user_registration_path
 div

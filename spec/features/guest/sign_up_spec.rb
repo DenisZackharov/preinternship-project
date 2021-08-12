@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "Sign Up" do
-  let(:user) { create :user, firstname: firstname, lastname: lastname, email: email, password: password, password_confirmation: password_confirmation }
 
   let(:firstname) { "Denis" }
   let(:lastname) { "Zaharov" }
