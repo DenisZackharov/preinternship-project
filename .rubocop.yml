@@ -6,6 +6,15 @@ AllCops:
  DisplayCopNames: true
  Exclude: 
    - db/**/*
+   
+RSpec/MultipleMemoizedHelpers:
+ Enabled: false
+
+RSpec/MultipleExpectations:
+ Enabled: false
+ 
+RSpec/PredicateMatcher:
+ Enabled: false 
 
 Metrics/LineLength:
  Max: 200
@@ -40,3 +49,9 @@ Style/EmptyMethod:
   SupportedStyles:
     - compact
     - expanded
+
+RSpec/Capybara/FeatureMethods:
+ Enabled: false
+    
+RSpec/ExampleLength:
+  Enabled: false
