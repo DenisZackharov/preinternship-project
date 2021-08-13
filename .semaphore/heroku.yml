@@ -23,3 +23,5 @@ blocks:
             - 'git remote add heroku https://git.heroku.com/fierce-plains-93658.git'
             - 'git push heroku -f $SEMAPHORE_GIT_BRANCH:master'
             - 'heroku run rails db:migrate'
+      secrets:
+        - name: preinternship-project
