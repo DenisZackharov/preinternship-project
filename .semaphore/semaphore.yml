@@ -33,7 +33,7 @@ blocks:
             - 'bundle install ${BUNDLE_ARGS}'
             - cache store
       secrets:
-        - name: preinternship
+        - name: preinternship-heroku
   - name: Quality
     task:
       jobs:
