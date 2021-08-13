@@ -33,7 +33,7 @@ blocks:
             - 'bundle install ${BUNDLE_ARGS}'
             - cache store
       secrets:
-        - name: preinternship-project
+        - name: preinternship
   - name: Quality
     task:
       jobs:
