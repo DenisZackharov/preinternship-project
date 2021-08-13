@@ -8,7 +8,7 @@ blocks:
   - name: Deploy
     task:
       secrets:
-        - name: preinternship-project
+        - name: preinternship
       env_vars:
         - name: HEROKU_REMOTE
           value: 'https://git.heroku.com/fierce-plains-93658.git'
