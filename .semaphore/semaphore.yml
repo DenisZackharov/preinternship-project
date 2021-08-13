@@ -32,6 +32,8 @@ blocks:
           commands:
             - 'bundle install ${BUNDLE_ARGS}'
             - cache store
+      secrets:
+        - name: preinternship-project
   - name: Quality
     task:
       jobs:
