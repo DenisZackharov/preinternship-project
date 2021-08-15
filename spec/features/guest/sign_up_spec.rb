@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "Sign Up" do
-
   let(:firstname) { "Denis" }
   let(:lastname) { "Zaharov" }
   let(:email) { Faker::Internet.email }

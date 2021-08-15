@@ -61,10 +61,13 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "active_model_serializers"
 gem "bootstrap-sass"
 gem "bundler-audit", "~> 0.8.0"
 gem "devise"
+gem "draper"
 gem "jquery-rails"
+gem "pundit"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18", require: false
 gem "rubocop-rails", require: false
