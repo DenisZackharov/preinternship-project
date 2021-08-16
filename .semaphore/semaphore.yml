@@ -64,4 +64,4 @@ promotions:
     auto_promote_on:
       - result: passed
         branch:
-          - master
+          - main
