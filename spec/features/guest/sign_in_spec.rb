@@ -18,4 +18,11 @@ feature "Sign In" do
     sign_in("denis.zaharov@flatstack.com", "100100")
     expect(page).to have_content("Hello, Denis Zaharov denis.zaharov@flatstack.com")
   end
+
+  scenario "Visitor signs in with invalid credentials" do
+    sign_in("denis.zaharov@flatstack.com", "wrong password")
+
+    expect(page).to have_content("Sign in")
+    expect(page).to have_content("Invalid Email or password")
+  end
 end
