@@ -1,21 +1,14 @@
 require "rails_helper"
 
 feature "Sign Up" do
-
-  let(:firstname) { "Denis" }
-  let(:lastname) { "Zaharov" }
-  let(:email) { Faker::Internet.email }
-  let(:password) { "password" }
-  let(:password_confirmation) { password }
-
   scenario "Visitor signs up" do
     visit new_user_registration_path
 
-    fill_in "Firstname", with: firstname
-    fill_in "Lastname", with: lastname
-    fill_in "Email", with: email
-    fill_in "Password", with: password
-    fill_in "Password confirmation", with: password_confirmation
+    fill_in "Firstname", with: "Denis"
+    fill_in "Lastname", with: "Zaharov"
+    fill_in "Email", with: Faker::Internet.email
+    fill_in "Password", with: "100100"
+    fill_in "Password confirmation", with: "100100"
 
     click_button "Sign up"
 
