@@ -1,4 +1,4 @@
-class UserParameterSanitazer < Devise::ParameterSanitizer
+class UserParameterSanitizer < Devise::ParameterSanitizer
   USER_PARAMS = %i[
     firstname
     lastname

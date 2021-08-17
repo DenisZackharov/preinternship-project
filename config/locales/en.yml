@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  not_authorized_for_action: "You are not authorized to perform this action."

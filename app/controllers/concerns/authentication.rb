@@ -13,7 +13,7 @@ module Authentication
 
   def devise_parameter_sanitizer
     if resource_class == User
-      ::UserParameterSanitazer.new(User, :user, params)
+      ::UserParameterSanitizer.new(User, :user, params)
     else
       super
     end

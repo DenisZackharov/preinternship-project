@@ -9,7 +9,7 @@ module Authorization
   private
 
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
+    flash[:notice] = t(:not_authorized_for_action)
     redirect_to(root_path)
   end
 end
