@@ -16,8 +16,6 @@ global_job_config:
   env_vars:
     - name: RAILS_ENV
       value: test
-    - name: DATABASE_URL
-      value: 'postgresql://postgres@localhost/test?encoding=utf8'
     - name: BUNDLE_ARGS
       value: '--deployment --without development staging production --jobs 4'
   prologue:
@@ -30,7 +28,7 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - 'bundle install ${BUNDLE_ARGS}'
+            - 'bundle --path vendor/bundle'
             - cache store
       secrets:
         - name: preinternship
@@ -39,7 +37,7 @@ blocks:
       jobs:
         - name: Quality
           commands:
-            - 'bundle install ${BUNDLE_ARGS} --local'
+            - 'bundle install --path vendor/bundle'
             - bin/quality
   - name: Test
     task:
@@ -47,7 +45,7 @@ blocks:
         commands:
           - nvm use
           - sem-version ruby 3.0.0
-          - 'bundle install ${BUNDLE_ARGS} --local'
+          - 'bundle install --path vendor/bundle'
           - sem-service start postgres
           - 'bin/rails db:setup'
           - 'bin/rails assets:precompile'
