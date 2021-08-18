@@ -30,7 +30,7 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - 'bundle --path vendor/bundle'
+            - 'bundle install --path vendor/bundle'
             - cache store
       secrets:
         - name: preinternship
