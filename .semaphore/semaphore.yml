@@ -23,6 +23,7 @@ global_job_config:
       - checkout
       - cache restore
       - export DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL="true"
+      - 'export DATABASE_URL=postgres://postgres@localhost/test'
 blocks:
   - name: Setup
     task:
