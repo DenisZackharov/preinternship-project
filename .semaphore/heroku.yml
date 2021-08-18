@@ -12,6 +12,8 @@ blocks:
       env_vars:
         - name: HEROKU_REMOTE
           value: 'https://git.heroku.com/fierce-plains-93658.git'
+        - name: HEROKU_API_KEY
+          value: 910070be-8d54-4344-8a0c-1b3cc1a0593a  
       prologue:
         commands:
           - checkout --use-cache
