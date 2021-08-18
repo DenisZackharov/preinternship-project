@@ -24,6 +24,7 @@ global_job_config:
     commands:
       - checkout
       - cache restore
+      - export DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL="true"
 blocks:
   - name: Setup
     task:
