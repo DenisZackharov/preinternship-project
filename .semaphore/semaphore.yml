@@ -39,7 +39,7 @@ blocks:
       jobs:
         - name: Quality
           commands:
-            - 'bundle install --path vendor/bundle'
+            - cache 
             - bin/quality
   - name: Test
     task:
@@ -47,7 +47,7 @@ blocks:
         commands:
           - nvm use
           - sem-version ruby 3.0.0
-          - 'bundle install --path vendor/bundle'
+          - cache restore
           - sem-service start postgres
           - 'bin/rails db:setup'
           - 'bin/rails assets:precompile'
