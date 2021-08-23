@@ -13,7 +13,7 @@ blocks:
         - name: HEROKU_REMOTE
           value: https://git.heroku.com/preinternship-project.git
         - name: HEROKU_APP_NAME
-          value: preinternship-project 
+          value: 'preinternship-project'
       prologue:
         commands:
           - checkout --use-cache
