@@ -71,5 +71,6 @@ gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
 gem "sassc-rails", ">= 2.1.0"
 gem "scss_lint", require: false
+gem "sendgrid-ruby"
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
