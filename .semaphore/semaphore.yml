@@ -39,7 +39,7 @@ blocks:
       jobs:
         - name: Quality
           commands:
-            - cache 
+            - cache restore
             - bin/quality
   - name: Test
     task:
