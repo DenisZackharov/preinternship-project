@@ -35,9 +35,7 @@ blocks:
     task:
       jobs:
         - name: Quality
-          commands:
-            cache restore
-            - bin/quality
+          commands: cache restore - bin/quality
   - name: Test
     task:
       prologue:
