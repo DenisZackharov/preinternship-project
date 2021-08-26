@@ -29,7 +29,7 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - bundle install --path vendor/bundle
+            - bundle install ${BUNDLE_ARGS}
             - cache store
   - name: Quality
     task:
