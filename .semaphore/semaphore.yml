@@ -38,7 +38,7 @@ blocks:
       jobs:
         - name: Quality
           commands:
-            - cache restore
+            - bundle install --path vendor/bundle
             - bin/quality
   - name: Test
     task:

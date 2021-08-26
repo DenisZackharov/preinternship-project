@@ -13,16 +13,16 @@ blocks:
         - name: HEROKU_REMOTE
           value: 'https://git.heroku.com/preinternship-project.git'
         - name: HEROKU_APP_NAME
-          value: 'preinternship-project'
+          value: preinternship-project
       prologue:
         commands:
           - checkout --use-cache
           - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
           - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
           - ssh-add ~/.ssh/id_rsa_semaphore_heroku
-          - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
+          - 'git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/'
       jobs:
         - name: Deploy to Production
           commands:
             - git remote add heroku $HEROKU_REMOTE
-            - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
+            - 'git push heroku -f $SEMAPHORE_GIT_BRANCH:master'
