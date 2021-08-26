@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-HOSTNAME = ENV['HOSTNAME']
+HOSTNAME = ENV["HOSTNAME"]
 
 module Preinternship
   class Application < Rails::Application
