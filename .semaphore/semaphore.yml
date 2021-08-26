@@ -31,14 +31,12 @@ blocks:
           commands:
             - bundle install --path vendor/bundle
             - cache store
-      secrets:
-        - name: preinternship
   - name: Quality
     task:
       jobs:
         - name: Quality
           commands:
-            - bundle install --path vendor/bundle
+            cache restore
             - bin/quality
   - name: Test
     task:
