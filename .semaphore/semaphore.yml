@@ -29,14 +29,15 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - bundle install ${BUNDLE_ARGS}
+            - bundle config set --local path 'vendor/bundle'
+            - bundle install
             - cache store
   - name: Quality
     task:
       jobs:
         - name: Quality
           commands: 
-          - cache restore 
+          - cache restore
           - bin/quality
   - name: Test
     task:

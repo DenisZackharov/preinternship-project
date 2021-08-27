@@ -74,7 +74,7 @@ gem "rubocop", "~> 1.18", require: false
 gem "rubocop-discourse"
 gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
-gem "sassc-rails", ">= 2.1.0"
+gem "sassc"
 gem "scss_lint", require: false
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
