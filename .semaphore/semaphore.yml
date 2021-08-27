@@ -29,15 +29,14 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - bundle config set --local path 'vendor/bundle'
-            - bundle install
+            - bundle install ${BUNDLE_ARGS}
             - cache store
   - name: Quality
     task:
       jobs:
         - name: Quality
           commands: 
-          - cache restore
+          - bundle install ${BUNDLE_ARGS} --local
           - bin/quality
   - name: Test
     task:
@@ -45,7 +44,7 @@ blocks:
         commands:
           - nvm use
           - sem-version ruby 3.0.0
-          - cache restore
+          - bundle install ${BUNDLE_ARGS} --local
           - sem-service start postgres
           - 'bin/rails db:setup'
           - 'bin/rails assets:precompile'
