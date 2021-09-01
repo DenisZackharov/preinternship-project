@@ -6,7 +6,9 @@ feature "Sign out" do
   end
 
   scenario "Visitor sign out" do
-    sign_out("denis.zaharov@flatstack.com", "100100")
+    sign_in("denis.zaharov@flatstack.com", "100100")
+    click_link "Sign out"
+    page.accept_alert
     expect(page).to have_content("Signed out successfully.")
   end
 end
