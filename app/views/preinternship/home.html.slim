@@ -3,7 +3,7 @@ h1
 - if user_signed_in?
   span
     | Hello, 
-    =< current_user.firstname_lastname_with_email
+    =< current_user.fullname_with_email
   div
     = link_to "Edit profile", edit_user_registration_path
 - else
