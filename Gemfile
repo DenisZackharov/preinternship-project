@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
 
+gem "bundler", "~> 2.2", ">= 2.2.25"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.4"
 # Use postgresql as the database for Active Record
@@ -31,13 +32,14 @@ gem "bootsnap", ">= 1.4.4", require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
   gem "rspec-rails", ">= 3.9.0"
+  gem "slim_lint", require: false
 end
 
 group :development do
-  gem "brakeman"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console", ">= 4.1.0"
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -64,15 +66,18 @@ end
 gem "active_model_serializers"
 gem "bootstrap-sass"
 gem "bundler-audit", "~> 0.8.0"
+gem "brakeman"
 gem "devise"
 gem "draper"
 gem "jquery-rails"
+gem "parser"
 gem "pundit"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18", require: false
+gem "rubocop-discourse"
 gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
-gem "sassc-rails", ">= 2.1.0"
+gem "sassc"
 gem "scss_lint", require: false
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
