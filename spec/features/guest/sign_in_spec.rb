@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Sign In" do
-  before do
+  background do
     create :user, email: "denis.zaharov@flatstack.com", password: "100100", firstname: "Denis", lastname: "Zaharov"
   end
 
