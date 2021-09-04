@@ -1,9 +1,13 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
+<<<<<<< HEAD
   revision: a40905f2ae20a1dcd153722640c9f1ee96e499bf
+=======
+  revision: 1da056158dad0e69e0472062c36ad242ea532ee5
+>>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
   branch: master
   specs:
-    faker (2.18.0)
+    faker (2.19.0)
       i18n (>= 1.6, < 2)
 
 GEM
@@ -75,7 +79,7 @@ GEM
       execjs (~> 2)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.7.7)
+    bootsnap (1.8.1)
       msgpack (~> 1.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -108,6 +112,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     email_spec (2.2.0)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
@@ -147,17 +155,26 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
     method_source (1.0.0)
-    mini_mime (1.1.0)
+    mini_mime (1.1.1)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.12.3)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     nokogiri (1.12.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.3-x86_64-linux)
+=======
+    nokogiri (1.12.4)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    nokogiri (1.12.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.4-x86_64-linux)
+>>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.20.1)
@@ -169,7 +186,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-mini-profiler (2.3.2)
+    rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-proxy (0.7.0)
       rack
@@ -193,7 +210,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+<<<<<<< HEAD
     rails-html-sanitizer (1.4.1)
+=======
+    rails-html-sanitizer (1.4.2)
+>>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       loofah (~> 2.3)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
@@ -232,7 +253,11 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+<<<<<<< HEAD
     rubocop (1.19.1)
+=======
+    rubocop (1.20.0)
+>>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -241,8 +266,15 @@ GEM
       rubocop-ast (>= 1.9.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
+<<<<<<< HEAD
     rubocop-ast (1.10.0)
+=======
+    rubocop-ast (1.11.0)
+>>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       parser (>= 3.0.1.1)
+    rubocop-discourse (2.4.2)
+      rubocop (>= 1.1.0)
+      rubocop-rspec (>= 2.0.0)
     rubocop-rails (2.11.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -279,6 +311,9 @@ GEM
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
+    slim_lint (0.22.0)
+      rubocop (>= 0.78.0)
+      slim (>= 3.0, < 5.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -328,11 +363,13 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap-sass
   brakeman
+  bundler (~> 2.2, >= 2.2.25)
   bundler-audit (~> 0.8.0)
   byebug
   capybara (>= 3.26)
   database_cleaner-active_record
   devise
+  dotenv-rails
   email_spec
   factory_bot_rails
   faker!
@@ -341,6 +378,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen (~> 3.3)
+  parser
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -348,14 +386,16 @@ DEPENDENCIES
   rspec (~> 3.10)
   rspec-rails (>= 3.9.0)
   rubocop (~> 1.18)
+  rubocop-discourse
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
-  sassc-rails (>= 2.1.0)
+  sassc
   scss_lint
   selenium-webdriver
   sendgrid-ruby
   slim
+  slim_lint
   spring
   turbolinks (~> 5)
   tzinfo-data
@@ -367,4 +407,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.11
+   2.2.26
