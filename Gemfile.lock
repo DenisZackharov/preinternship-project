@@ -1,10 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-<<<<<<< HEAD
-  revision: a40905f2ae20a1dcd153722640c9f1ee96e499bf
-=======
   revision: 1da056158dad0e69e0472062c36ad242ea532ee5
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
   branch: master
   specs:
     faker (2.19.0)
@@ -160,21 +156,12 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-<<<<<<< HEAD
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri (1.12.3-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.3-x86_64-linux)
-=======
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     nokogiri (1.12.4-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.20.1)
@@ -210,11 +197,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-<<<<<<< HEAD
-    rails-html-sanitizer (1.4.1)
-=======
     rails-html-sanitizer (1.4.2)
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       loofah (~> 2.3)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
@@ -253,11 +236,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-<<<<<<< HEAD
-    rubocop (1.19.1)
-=======
     rubocop (1.20.0)
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -266,11 +245,7 @@ GEM
       rubocop-ast (>= 1.9.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-<<<<<<< HEAD
-    rubocop-ast (1.10.0)
-=======
     rubocop-ast (1.11.0)
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
       parser (>= 3.0.1.1)
     rubocop-discourse (2.4.2)
       rubocop (>= 1.1.0)

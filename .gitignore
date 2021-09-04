@@ -35,11 +35,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-<<<<<<< HEAD
-/config/credentials/production.key
-
-# Ignore env variables
-=======
 # Ignore env keys
->>>>>>> f7b2eed53b7ca0becbd8d1e579df72b4564b89d4
 /.env
