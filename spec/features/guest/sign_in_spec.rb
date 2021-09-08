@@ -1,21 +1,20 @@
 require "rails_helper"
 
 feature "Sign In" do
-  before do
+  background do
     create :user, email: "denis.zaharov@flatstack.com", password: "100100", firstname: "Denis", lastname: "Zaharov"
   end
 
-  def sign_in(email, password)
-    visit new_user_session_path
-
-    fill_in "Email", with: email
-    fill_in "Password", with: password
-
-    click_button "Log in"
+  scenario "Visitor Sign in with valid credentials" do
+    sign_in("denis.zaharov@flatstack.com", "100100")
+    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_content("Hello, Denis Zaharov (denis.zaharov@flatstack.com)")
   end
 
-  scenario "Visitor signs in with valid credentials" do
-    sign_in("denis.zaharov@flatstack.com", "100100")
-    expect(page).to have_content("Hello, Denis Zaharov denis.zaharov@flatstack.com")
+  scenario "Visitor Sign in with invalid credentials" do
+    sign_in("denis.zaharov@flatstack.com", "wrong password")
+
+    expect(page).to have_content("Sign in")
+    expect(page).to have_content("Invalid Email or password")
   end
 end
