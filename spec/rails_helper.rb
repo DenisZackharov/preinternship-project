@@ -7,7 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara"
-require 'capybara/email/rspec'
+require "capybara/email/rspec"
 
 Capybara.configure do |config|
   config.javascript_driver = :selenium_chrome
