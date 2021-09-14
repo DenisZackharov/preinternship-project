@@ -23,6 +23,6 @@ feature "Sign Up" do
     visit_in_email("Confirm my account")
 
     expect(page).to have_content("Your email address has been successfully confirmed")
-    expect(page).to have_text("Hello, Denis Zaharov (denis.zaharov@flatstack.com)")
+    expect(page).to have_button("Log in")
   end
 end
