@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "preinternship_production"
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.perform_deliveries = true
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -118,7 +118,6 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  
   ActionMailer::Base.smtp_settings = {
     user_name: ENV["SENDGRID_USERNAME"], # This is the string literal 'apikey', NOT the ID of your API key
     password: ENV["SENDGRID_PASSWORD"], # This is the secret sendgrid API key which was issued during API key creation
@@ -129,5 +128,5 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options ={:host => 'preinternship-project.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default_url_options = { host: "preinternship-project.herokuapp.com", protocol: "https" }
 end
