@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "wap-denis@mail.ru"
+  default from: "denis.zaharov@flatstack.com"
   layout "mailer"
 end
