@@ -2,5 +2,5 @@ h1 Articles
 ul
   - @articles.each do |article|
     li
-      a href="/articles/#{article.id}" 
+      a href="/articles/#{article.id}"
         = "#{article.user.firstname} : #{article.title}"
