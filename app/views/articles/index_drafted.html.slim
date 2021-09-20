@@ -1,0 +1,6 @@
+h1 Drafted articles 
+ ul
+  - @articles.each do |article|
+    li
+      = link_to "#{article.user.firstname} : #{article.title}", article
+  = link_to "Back", :back
