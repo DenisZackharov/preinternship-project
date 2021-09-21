@@ -41,8 +41,9 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include UserHelper
+  
   config.use_transactional_fixtures = false
-
   config.before(:suite) do
     if config.use_transactional_fixtures?
       raise(<<-MSG)
