@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara"
+require "capybara/email/rspec"
 
 Capybara.configure do |config|
   config.javascript_driver = :selenium_chrome
@@ -40,8 +41,9 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
+  config.include UserHelper
 
+  config.use_transactional_fixtures = false
   config.before(:suite) do
     if config.use_transactional_fixtures?
       raise(<<-MSG)

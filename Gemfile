@@ -67,6 +67,7 @@ gem "active_model_serializers"
 gem "bootstrap-sass"
 gem "bundler-audit", "~> 0.8.0"
 gem "brakeman"
+gem "capybara-email"
 gem "devise"
 gem "draper"
 gem "jquery-rails"
@@ -79,5 +80,6 @@ gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
 gem "sassc"
 gem "scss_lint", require: false
+gem "sendgrid-ruby"
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
