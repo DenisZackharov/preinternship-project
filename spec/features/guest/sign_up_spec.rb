@@ -24,5 +24,8 @@ feature "Sign Up" do
 
     expect(page).to have_content("Your email address has been successfully confirmed")
     expect(page).to have_button("Log in")
+
+    sign_in(user_email, "100100")
+    expect(page).to have_content("Hello, Denis Zaharov (denis.zaharov@flatstack.com)")
   end
 end
