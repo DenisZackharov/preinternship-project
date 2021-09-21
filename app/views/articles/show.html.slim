@@ -1,3 +1,6 @@
 h1 = @article.title
 p = @article.content
 = link_to "Back to articles", articles_path
+- if @article.drafted?
+  '
+  = link_to "Back to drafted articles", drafted_articles_path

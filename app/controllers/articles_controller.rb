@@ -13,12 +13,7 @@ class ArticlesController < ApplicationController
   def index_drafted
     @articles = Article.where(status: "drafted")
   end
-
-  def show_drafted
-    @article = Article.find(params[:id])
-  end
   
-
   def create
     @article = current_user.articles.create(article_params)
 
