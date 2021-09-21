@@ -7,7 +7,7 @@ feature "Reset password" do
 
   let(:user_email) { "denis.zaharov@flatstack.com" }
   let(:new_password) { "100123" }
-  
+
   scenario "Visitor reset password with existing email" do
     visit new_user_session_path
 
@@ -31,7 +31,7 @@ feature "Reset password" do
 
     fill_in "New password", with: new_password
     fill_in "Confirm new password", with: "invalid"
- 
+
     click_button("Change my password")
 
     expect(page).to have_content("Password confirmation doesn't match Password")
@@ -50,7 +50,7 @@ feature "Reset password" do
     sign_in("denis.zaharov@flatstack.com", new_password)
     expect(page).to have_content("Signed in successfully.")
   end
-  
+
   scenario "Visitor reset password with unexisting email" do
     visit new_user_session_path
 
