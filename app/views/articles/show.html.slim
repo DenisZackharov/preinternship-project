@@ -3,3 +3,10 @@ p = @article.content
 = link_to "Back to articles", articles_path
 - if @article.drafted?
   =< link_to "Back to drafted articles", drafted_articles_path
+  // кнопка чтобы сделать артикль паблик
+- if @article.user_id
+ =< link_to "Edit", edit_article_path(@article)
+ =< link_to "Destroy", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }
+// кнопка чтобы сделать артикль драфтед

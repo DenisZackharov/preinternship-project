@@ -29,10 +29,15 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    @article = current_user.articles.find(params[:id])
+  end
+
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
-      redirect_to @article
+      flash[:success] = "Article updated!"
+      redirect_to article_path(@article)
     else
       render :edit, status: :unprocessable_entity
     end
