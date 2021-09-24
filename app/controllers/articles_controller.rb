@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   def index_drafted
     @articles = Article.where(status: "drafted")
   end
-  
+
   def create
     @article = current_user.articles.create(article_params)
 
@@ -49,4 +49,5 @@ private
   def article_params
     params.require(:article).permit(:title, :content, :status)
   end
+
 end
