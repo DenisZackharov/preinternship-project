@@ -10,8 +10,13 @@ module Draft
   def archived?
     status == "archived"
   end
+
   def drafted?
     status == "drafted"
+  end
+
+  def publish?
+    status == "public"
   end
 
 end

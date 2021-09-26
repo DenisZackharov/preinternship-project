@@ -1,7 +1,7 @@
 h1 Articles
 ul
   - @articles.each do |article|
-   - unless article.archived? || article.drafted?
+   - if article.publish?
     li
       = link_to "#{article.user.firstname} : #{article.title}", article
 - if user_signed_in?
