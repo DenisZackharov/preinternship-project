@@ -1,12 +1,14 @@
 h1 = @article.title
 p = @article.content
-= link_to "Back to articles", articles_path
-- if @article.drafted?
-  =< link_to "Back to drafted articles", drafted_articles_path
-  // кнопка чтобы сделать артикль паблик
-- if @article.user_id
- =< link_to "Edit", edit_article_path(@article)
+= link_to "Back to articles", articles_path, class: "btn btn-primary"
+
+- if @article.user == current_user && @article.publish?
+ =< link_to "Edit", edit_article_path(@article), class: "btn btn-secondary"
  =< link_to "Destroy", article_path(@article),
+                  class: "btn btn-danger",
                   method: :delete,
                   data: { confirm: "Are you sure?" }
-// кнопка чтобы сделать артикль драфтед
+ =< link_to "Make a draft", article_path(@article), method: :patch, data: { status: "drafted" }, class: "btn btn-warning"
+- if @article.drafted?
+  =< link_to "Publish", article_path(@article), method: :patch, data: { status: "public" }, class: "btn btn-success"
+  div = link_to "Back to drafted articles", drafted_articles_path, class: "btn btn-outline-secondary"

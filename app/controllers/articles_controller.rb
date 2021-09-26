@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def index_drafted
-    @articles = Article.where(status: "drafted")
+    @articles = current_user.articles.where(status: "drafted")
   end
 
   def create
@@ -31,11 +31,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def update
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = "Article updated!"
       redirect_to article_path(@article)
