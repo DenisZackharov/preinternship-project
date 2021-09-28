@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   root "preinternship#home"
-  devise_for :users, controllers: { registrations: "users/registrations" }
   get "preinternship/about"
 
-  resources :articles
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
-  resources :drafted_articles, only: %i( index )
+  resources :articles
 
 end

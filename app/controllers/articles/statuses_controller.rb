@@ -1,6 +1,7 @@
 module Articles
   class StatusesController < ApplicationController
-before_action: :authenticate_user!
+    before_action :authenticate_user!
+
     def update
       @article = Article.find(params[:id])
       authorize @article
@@ -13,8 +14,8 @@ before_action: :authenticate_user!
     end
 
     private
-      def status_params
-        params.require(:article).permit(:status)
-      end
+    def status_params
+      params.require(:article).permit(:status)
+    end
   end
 end

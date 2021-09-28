@@ -2,15 +2,8 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
 
-  expose :articles, :fetch_articles
+  expose :articles, ->  { Article.all }
   expose :article
-
-  def index
-    articles.order(created_at: :asc)
-  end
-
-  def show
-  end
 
   def create
     @article = current_user.articles.create(article_params)
@@ -53,10 +46,6 @@ class ArticlesController < ApplicationController
   end
 
 private
-
-  def fetch_articles
-    Article.all
-  end
 
   def article_params
     params.require(:article).permit(:title, :content, :status)
