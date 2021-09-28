@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
 
   def index
     @articles = Article.all
@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def update
