@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  get "/drafted_articles/", to: "articles#index_drafted"
+  resources :drafted_articles, only: %i( index )
 
 end

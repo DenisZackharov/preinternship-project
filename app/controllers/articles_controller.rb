@@ -2,17 +2,14 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
 
+  expose :articles, :fetch_articles
+  expose :article
+
   def index
-    @articles = Article.all
-    @articles.order(created_at: :asc)
+    articles.order(created_at: :asc)
   end
 
   def show
-    @article = Article.find(params[:id])
-  end
-
-  def index_drafted
-    @articles = current_user.articles.where(status: "drafted")
   end
 
   def create
@@ -38,6 +35,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    authorize @article
     if @article.update(article_params)
       flash[:notice] = "Article updated!"
       redirect_to article_path(@article)
@@ -48,14 +46,27 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    authorize @article
     @article.destroy
     flash[:notice] = "Article destroyed!"
     redirect_to articles_path
   end
 
 private
+
+  def fetch_articles
+    Article.all
+  end
+
   def article_params
     params.require(:article).permit(:title, :content, :status)
   end
 
+  def filter_params
+    params.permit(:status)
+  end
+
+  def sort_params
+    params.permit(:title)
+  end
 end

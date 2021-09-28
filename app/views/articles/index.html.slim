@@ -6,4 +6,4 @@ ul
       = link_to "#{article.user.firstname} : #{article.title}", article
 - if user_signed_in?
   = link_to "New Article", new_article_path, class: "btn btn-success"
-  =< link_to "Drafted articles", drafted_articles_path, class: "btn btn-outline-secondary"
+  =< link_to "Drafted articles", articles_path(status: :draft), class: "btn btn-outline-secondary"
