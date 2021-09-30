@@ -1,12 +1,6 @@
 h1 Articles
 ul
   - articles.each do |article|
-   - if article.publish?
-    li
-      = link_to "#{article.user.firstname} : #{article.title}", article
-   - if article.drafted?
-     li
-      = link_to "#{article.user.firstname} : #{article.title}", article, class: "link-secondary"
-- if user_signed_in?
-  = link_to "New Article", new_article_path, class: "btn btn-success"
-  =< link_to "Drafted articles", articles_path(status: :drafted), class: "btn btn-outline-secondary"
+   li
+    = link_to "#{article.user.firstname} : #{article.title}", article
+

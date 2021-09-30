@@ -391,6 +391,7 @@ DEPENDENCIES
   pundit
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
+  responders
   rspec (~> 3.10)
   rspec-rails (>= 3.9.0)
   rubocop (~> 1.18)

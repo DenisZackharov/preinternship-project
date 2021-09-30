@@ -74,6 +74,7 @@ gem "draper"
 gem "jquery-rails"
 gem "parser"
 gem "pundit"
+gem "responders"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18", require: false
 gem "rubocop-discourse"
