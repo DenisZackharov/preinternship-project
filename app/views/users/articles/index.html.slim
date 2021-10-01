@@ -2,7 +2,7 @@ h1 Articles
 ul
   - articles.each do |article|
     li
-      = link_to "#{article.user.firstname} : #{article.title}", article
+      = link_to "#{article.user.firstname} : #{article.title}", user_article_path(:user, article)
 
   = link_to "New Article", new_user_article_path, class: "btn btn-success"
   =< link_to "Drafted articles", user_articles_path(status: :drafted), class: "btn btn-outline-secondary"
