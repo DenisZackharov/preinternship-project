@@ -1,8 +1,8 @@
 module Users
   class ArticlesController < ApplicationController
 
-    expose :articles, -> { current_user.articles.where(filter_params) }
-    expose :article, scope: -> {current_user.articles}
+    expose :articles, -> { current_user.articles.where(filter_params).order(created_at: :desc) }
+    expose :article, parent: :current_user
 
     before_action :authenticate_user!
     before_action :authorize_resource!, only: %i[edit update destroy]
@@ -14,8 +14,8 @@ module Users
     end
 
     def create
-       article.save
-       respond_with article, location: user_article_path(current_user, article.id)
+      article.save
+      respond_with article, location: user_article_path(current_user, article)
     end
 
     def new
@@ -26,7 +26,7 @@ module Users
 
     def update
       if article.update(article_params)
-        respond_with article, location: user_article_path(current_user, article.id)
+        respond_with article, location: user_article_path(current_user, article)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Users
 
     def destroy
       article.destroy
-      respond_with(article)
+      respond_with article, location: user_articles_path(current_user)
     end
 
   private
@@ -44,11 +44,7 @@ module Users
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :status)
-    end
-
-    def filtered_articles
-      current_user.articles.where(filter_params)
+      params.require(:article).permit(:title, :content, :status, :user_id)
     end
 
     def filter_params

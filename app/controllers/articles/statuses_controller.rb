@@ -7,12 +7,7 @@ module Articles
 
     def update
       authorize article
-      if article.update(status_params)
-        flash[:notice] = "Article updated!"
-        redirect_to article_path(article)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      article.update(status_params)
     end
 
     private
