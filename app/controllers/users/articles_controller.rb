@@ -15,7 +15,7 @@ module Users
 
     def create
       article.save
-      respond_with article, location: user_article_path(current_user, article)
+      respond_with article, location: -> { user_article_path(article.id) }
     end
 
     def new
@@ -25,16 +25,13 @@ module Users
     end
 
     def update
-      if article.update(article_params)
-        respond_with article, location: user_article_path(current_user, article)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      article.update(article_params)
+      respond_with article, location: user_article_path(article.id)
     end
 
     def destroy
       article.destroy
-      respond_with article, location: user_articles_path(current_user)
+      respond_with article, location: user_articles_path
     end
 
   private

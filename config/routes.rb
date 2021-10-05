@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i[index show]
 
-  resources :users, only: [] do
-    resources :articles, module: :users
+  resource :user, only: [] do
+    resources :articles, only: %i[index show edit update destroy new create], module: :users
   end
 end
