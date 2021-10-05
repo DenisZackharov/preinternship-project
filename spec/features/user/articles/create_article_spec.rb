@@ -20,9 +20,9 @@ feature "CreateArticle" do
   end
 
   scenario "User create article with invalid data" do
-    fill_form(:article, :new, title: "Fi", content: "Hello")
+    fill_form(:article, :new, title: "12", content: "Hello")
     click_on "Create Article"
-    
+
     expect(page).to have_content("Article could not be created")
     expect(page).to have_content("Title is too short (minimum is 3 characters)")
   end
