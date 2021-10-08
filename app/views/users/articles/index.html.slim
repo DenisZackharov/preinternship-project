@@ -5,7 +5,7 @@ ul
       = link_to "#{article.user.firstname} : #{article.title}", user_article_path(article)
 
   = link_to "New Article", new_user_article_path, class: "btn btn-success"
-  - if params[:status] != "draft" 
+  - if params[:status] != "draft"
     =< link_to "Drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
   - if current_page?(user_articles_path(status: :draft))
     = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
