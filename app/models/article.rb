@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   extend Enumerize
 
+  paginates_per 5
+
   AVALIABLE_STATUSES = ["public", "draft", "archive"].freeze
 
   belongs_to :user

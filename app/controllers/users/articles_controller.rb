@@ -1,7 +1,7 @@
 module Users
   class ArticlesController < ApplicationController
 
-    expose :articles, -> { current_user.articles.where(filter_params).order(created_at: :desc) }
+    expose :articles, -> { current_user.articles.where(filter_params).order(created_at: :desc).page params[:page] }
     expose :article, parent: :current_user
 
     before_action :authenticate_user!
@@ -47,6 +47,5 @@ module Users
     def filter_params
       params.permit(:status).with_defaults(status: "public")
     end
-
   end
 end

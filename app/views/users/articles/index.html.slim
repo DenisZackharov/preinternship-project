@@ -9,3 +9,6 @@ ul
     =< link_to "Drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
   - if current_page?(user_articles_path(status: :draft))
     = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
+footer class="footer"
+  div align="center"
+    = paginate articles
