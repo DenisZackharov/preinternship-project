@@ -1,8 +1,8 @@
 h1 = article.title
 p = article.content
 - if article.user == current_user
- =< link_to "Edit", edit_user_article_path(current_user, article), class: "btn btn-secondary"
- =< link_to "Destroy", user_article_path(:user, article), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
+ =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
+ =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
  - if article.status.public?
   = form_with model: [:user, article] do |form|
     = form.hidden_field :status, value: "draft"

@@ -41,7 +41,7 @@ module Users
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :status, :user_id)
+      params.require(:article).permit(:title, :content, :status)
     end
 
     def filter_params
