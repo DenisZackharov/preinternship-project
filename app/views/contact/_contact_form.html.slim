@@ -1,0 +1,11 @@
+= form_for @contact, url: new_contact_path, remote: true do |f|
+  .col-md-6
+    = f.label :name
+    = f.text_field  :name, required: true, class: "contact-form-text-area"
+    = f.label :email
+    = f.text_field :email, required: true, class: "contact-form-text-area"
+    = f.label :message
+    = f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area", \
+      placeholder: "Send me a message"
+    = f.submit 'Send Message', class: 'btn btn-primary'
+#flash-message.col-md-6
