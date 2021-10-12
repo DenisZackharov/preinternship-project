@@ -1,7 +1,6 @@
 module Users
   class ArticlesController < ApplicationController
-
-    expose :articles, -> { current_user.articles.where(filter_params).order(created_at: :desc).page params[:page] }
+    expose :articles, :fetch_articles
     expose :article, parent: :current_user
 
     before_action :authenticate_user!
@@ -35,6 +34,10 @@ module Users
     end
 
   private
+
+    def fetch_articles
+      current_user.articles.where(filter_params).order(created_at: :desc).page(params[:page])
+    end
 
     def authorize_resource!
       authorize article

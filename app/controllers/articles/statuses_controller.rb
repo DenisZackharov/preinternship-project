@@ -1,6 +1,5 @@
 module Articles
   class StatusesController < ApplicationController
-
     expose :article, parent: :current_user
 
     before_action :authenticate_user!
@@ -12,7 +11,7 @@ module Articles
 
     private
 
-    def status_params
+    def article_params
       params.require(:article).permit(:status)
     end
   end

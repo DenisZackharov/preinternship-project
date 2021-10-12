@@ -12,7 +12,7 @@ feature "CreateArticle" do
     click_on "Create Article"
 
     expect(page).to have_content("Article was successfully created.")
-    expect(page).to have_content("First")
+    expect(page).to have_content("First article")
     expect(page).to have_button("Publish")
 
     click_link "Back to drafted articles"
