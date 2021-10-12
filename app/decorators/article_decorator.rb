@@ -1,7 +1,7 @@
 class ArticleDecorator < ApplicationDecorator
-  delegate all
+  delegate_all
 
-  def link_to_article
-    link_to "#{article.user.firstname} : #{article.title}"
+  def article_link
+    "#{user.firstname} : #{title}"
   end
 end

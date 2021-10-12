@@ -2,7 +2,7 @@ h1 Articles
 ul
   - articles.each do |article|
     li
-      = link_to_article, user_article_path(article)
+      =  link_to article.decorate.article_link, user_article_path(article)
 
   = link_to "New Article", new_user_article_path, class: "btn btn-success"
   - if params[:status] != "draft"
