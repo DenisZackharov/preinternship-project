@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :contact_params, only: %i(create)
 
-  def index
+  def new
     @contact = ContactMailer.new
   end
 
@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
       redirect_to root_path
     else
       flash.notice = "Message did not send."
-      render :index
+      render :new
     end
   end
 

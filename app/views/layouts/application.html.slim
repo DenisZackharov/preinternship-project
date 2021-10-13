@@ -13,7 +13,7 @@ html
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container-fluid
           = link_to "Blog", root_path, class: "navbar-brand"
-          = link_to "Contact me", contacts_path
+          = link_to "Contact me", new_contacts_path
       button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
       - if user_signed_in?

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   get "preinternship/about"
 
-  resources :contacts, only: %i[index new create]
+  resource :contacts, only: %i[new create]
 end

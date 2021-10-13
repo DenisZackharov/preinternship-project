@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "ContactForm" do
   scenario "delivers a valid message" do
-    visit contacts_path
+    visit new_contacts_path
     fill_in "Name", with: "Sergey Antonov"
     fill_in "Email", with: "sergey@everydayrails.com"
     fill_in "Message", with: "What a great website."
@@ -18,7 +18,7 @@ feature "ContactForm" do
   end
 
   scenario "does not deliver a message with a missing email" do
-    visit contacts_path
+    visit new_contacts_path
     fill_in "Name", with: "Denis Zahe"
     fill_in "Message", with: "What a great website."
     click_button "Send Message"
