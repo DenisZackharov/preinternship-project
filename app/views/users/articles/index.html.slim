@@ -1,8 +1,8 @@
 h1 Articles
 ul
-  - articles.each do |article|
+  - decorated_articles.each do |article|
     li
-      =  link_to article.decorate.article_link, user_article_path(article)
+      =  link_to article.article_link, user_article_path(article)
 
   = link_to "New Article", new_user_article_path, class: "btn btn-success"
   - if params[:status] != "draft"
@@ -11,4 +11,4 @@ ul
     = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
 footer class="footer"
   div align="center"
-    = paginate articles
+    = paginate decorated_articles

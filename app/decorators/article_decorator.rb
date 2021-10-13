@@ -1,7 +1,12 @@
 class ArticleDecorator < ApplicationDecorator
-  delegate_all
 
   def article_link
-    "#{user.firstname} : #{title}"
+    "#{user.firstname} : #{object.title}"
+  end
+
+  private
+
+  def user
+    @user ||= object.user
   end
 end

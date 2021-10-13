@@ -1,6 +1,6 @@
 module Users
   class ArticlesController < ApplicationController
-    expose :articles, :fetch_articles
+    expose :decorated_articles, -> { ArticleDecorator.decorate_collection(fetch_articles) }
     expose :article, parent: :current_user
 
     before_action :authenticate_user!
@@ -34,9 +34,12 @@ module Users
     end
 
   private
+    def filtered_articles
+      FilteredArticlesQuery.new(raw_relation, filter_params).all
+    end
 
     def fetch_articles
-      current_user.articles.where(filter_params).order(created_at: :desc).page(params[:page])
+      filtered_articles.order(created_at: :desc).page(params[:page])
     end
 
     def authorize_resource!
@@ -48,7 +51,11 @@ module Users
     end
 
     def filter_params
-      params.permit(:status).with_defaults(status: "public")
+      params.permit(:status).with_defaults(status: "public").to_h
+    end
+
+    def raw_relation
+      current_user.articles
     end
   end
 end

@@ -1,15 +1,16 @@
 h1 = article.title
 p = article.content
 - if policy(article).edit?
- =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
- =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
+ p =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
+ p =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
  - if article.status.public?
-  = form_with model: [:user, article] do |form|
-    = form.hidden_field :status, value: "draft"
-    = form.submit "Make a draft"
+  p = form_with model: [:user, article] do |form|
+      = form.hidden_field :status, value: "draft"
+      = form.submit "Make a draft", class: "btn btn-warning"
+  p =< link_to "Drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
  - if article.status.draft?
-  = form_with model: [:user, article] do |form|
-    = form.hidden_field :status, value: "public"
-    = form.submit "Publish"
-  div = link_to "Back to drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
+  p = form_with model: [:user, article] do |form|
+      = form.hidden_field :status, value: "public"
+      = form.submit "Publish", class: "btn btn-success"
+  p = link_to "Back to drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
 = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
