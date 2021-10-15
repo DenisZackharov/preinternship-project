@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "preinternship/about"
 
   devise_for :users, controllers: { registrations: "users/registrations" }
-
+  resource :contacts, only: %i[new create]
   resources :articles, only: %i[index show]
 
   resource :user, only: [] do

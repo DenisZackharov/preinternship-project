@@ -1,0 +1,22 @@
+= form_for @contact, url: contacts_path do |f|
+  .col-md-6
+    = f.label :name
+    br
+    = f.text_field :name, class: "contact-form-text-area"
+    - @contact.errors.full_messages_for(:name).each do |message|
+      div = message
+    br
+    = f.label :email
+    br
+    = f.text_field :email, class: "contact-form-text-area"
+    - @contact.errors.full_messages_for(:email).each do |message|
+      div = message
+    br
+    = f.label :message
+    br
+    = f.text_area :message, rows: 8, cols: 40, class: "contact-form-text-area", placeholder: "Send me a message"
+    - @contact.errors.full_messages_for(:message).each do |message|
+      div = message
+    br
+    = f.submit "Send Message", class: "btn btn-primary"
+    =< link_to "Back", root_path, class: "btn btn-secondary"
