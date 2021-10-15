@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "ContactForm" do
-  scenario "delivers a valid message" do
+feature "Contact request" do
+  scenario "Delivers a valid message" do
     visit new_contacts_path
     fill_in "Name", with: "Sergey Antonov"
     fill_in "Email", with: "sergey@everydayrails.com"
@@ -17,7 +17,7 @@ feature "ContactForm" do
     expect(current_email).to have_body_text("What a great website.")
   end
 
-  scenario "does not deliver a message with a missing email" do
+  scenario "Does not deliver a message with a missing email" do
     visit new_contacts_path
     fill_in "Name", with: "Denis Zahe"
     fill_in "Message", with: "What a great website."

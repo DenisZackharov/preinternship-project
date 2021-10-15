@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe ContactMailer, type: :mailer do
-  let(:contact) { ContactMailer.new(name: name, email: email, message: message) }
+  let(:contact) { described_class.new(name: name, email: email, message: message) }
   let(:name) { "Denis" }
   let(:email) { "denis@mail.com" }
   let(:message) { "hahaha" }
@@ -54,12 +54,14 @@ describe ContactMailer, type: :mailer do
   end
 
   describe "#headers" do
-    let(:mail) { contact.headers }
-
-    it "renders the headers" do
-      expect(mail[:subject]).to eq("My Contact Form")
-      expect(mail[:to]).to eq("denis.zaharov@flatstack.com")
-      expect(mail[:from]).to eq("\"Denis\" <denis@mail.com>")
+    subject { contact.headers }
+    let(:expected_headers) do
+      {
+        subject: "My Contact Form",
+        to: "denis.zaharov@flatstack.com",
+        from: "\"Denis\" <denis@mail.com>"
+      }
     end
+    it { is_expected.to eq(expected_headers) }
   end
 end
