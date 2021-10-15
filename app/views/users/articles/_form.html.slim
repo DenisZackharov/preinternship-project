@@ -1,0 +1,17 @@
+= form_with model: [:user, article] do |form|
+  div
+    = form.label :title
+    br/
+    = form.text_field :title
+    - article.errors.full_messages_for(:title).each do |message|
+      div = message
+
+  div
+    = form.label :content
+    br/
+    = form.text_area :content
+    - article.errors.full_messages_for(:content).each do |message|
+      div = message
+  div
+    = form.submit
+= link_to "Back to articles", user_articles_path, class: "btn btn-primary"

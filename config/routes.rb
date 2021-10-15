@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+
   root "preinternship#home"
-  devise_for :users, controllers: { registrations: "users/registrations" }
   get "preinternship/about"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
+
+  resources :articles, only: %i[index show]
+
+  resource :user, only: [] do
+    resources :articles, only: %i[index show edit update destroy new create], module: :users
+  end
 end
