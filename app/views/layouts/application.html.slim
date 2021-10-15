@@ -10,29 +10,23 @@ html
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_pack_tag "application", "data-turbolinks-track": "reload"
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      .container-fluid
-          = link_to "Blog", root_path, class: "navbar-brand"
-          = link_to "Contact me", new_contacts_path
-      button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
-        span.navbar-toggler-icon
-      - if user_signed_in?
-        #navbarSupportedContent.collapse.navbar-collapse
-
-        ul.navbar-nav.me-auto.mb-2.mb-lg-0
-
-        li.nav-item
-          = link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link", data: { confirm: "Are you sure?" }
-      - else
-        #navbarSupportedContent.collapse.navbar-collapse
-
-        li.nav-item
-          = link_to "Sign in", new_user_session_path, class: "nav-link"
-        li.nav-item
-          = link_to "Sign up", new_user_registration_path, class: "nav-link"
-
-    p.notice
-      = notice
-    p.alert
-      = alert
-    = yield
+  header.p-3.bg-dark.text-white
+    .container
+      nav.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+        ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+          li = link_to "Blog", root_path, class: "nav-link px-2 text-white"
+          li = link_to "About me", preinternship_about_path, class: "nav-link px-2 text-white"
+          li = link_to "All Articles", articles_path, class: "nav-link px-2 text-white"
+          - if user_signed_in?
+            li = link_to "My Articles", user_articles_path, class: "nav-link px-2 text-white"
+            li = link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link px-2 text-white", data: { confirm: "Are you sure?" }
+          - else
+            li = link_to "Sign in", new_user_session_path, class: "nav-link px-2 text-white"
+            li = link_to "Sign up", new_user_registration_path, class: "nav-link px-2 text-white"
+          li = link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
+        a = link_to "Denis Zaharov"
+p.notice
+= notice
+p.alert
+= alert
+= yield

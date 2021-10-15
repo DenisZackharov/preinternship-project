@@ -1,0 +1,8 @@
+h1 Articles
+ul
+  - decorated_articles.each do |article|
+   li
+      = link_to article.article_link, article
+footer class="footer"
+  div align="center"
+    = paginate decorated_articles
