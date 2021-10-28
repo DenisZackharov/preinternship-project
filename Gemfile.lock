@@ -406,7 +406,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mail_form
   parser
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   pundit
   rack-mini-profiler (~> 2.0)
@@ -436,4 +436,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.26
+   2.2.30
