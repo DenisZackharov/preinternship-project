@@ -34,7 +34,7 @@ module Users
     end
 
   private
-  
+
     def create_article
       Articles::Create.call(article: article, article_params: article_params)
     end
@@ -42,7 +42,7 @@ module Users
     def update_article
       Articles::Update.call(article: article, article_params: article_params)
     end
-    
+
     def fetch_articles
       filtered_articles.order(created_at: :desc).page(params[:page])
     end
