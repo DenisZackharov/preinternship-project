@@ -11,27 +11,5 @@ module TransactionalInteractor
         interactor.call(context)
       end
     end
-
-    def self.after_transaction(*hooks, &block)
-      hooks << block if block
-      hooks.each { |hook| after_transaction_hooks.unshift(hook) }
-    end
-
-    def self.after_transaction_hooks
-      @after_transaction_hooks ||= []
-    end
-
-    def with_hooks
-      send(:run_around_hooks) do
-        send(:run_before_hooks)
-        yield
-        send(:run_after_hooks)
-      end
-      send(:run_after_transaction_hooks)
-    end
-  end
-
-  def run_after_transaction_hooks
-    send(:run_hooks, self.class.after_transaction_hooks)
   end
 end
