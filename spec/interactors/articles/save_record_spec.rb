@@ -15,12 +15,9 @@ describe Articles::SaveRecord do
       {
         title: "First",
         content: "article title",
-        status: "draft",
-        user_id: user.id
+        status: "draft"
       }
     end
-
-    let(:user) { create :user }
 
     context "when create article" do
       let(:article) { build :article }
@@ -34,7 +31,7 @@ describe Articles::SaveRecord do
 
     context "when update article" do
       let!(:article) do
-        create :article, title: "Not changed", content: "not changed", status: "draft", user_id: user.id
+        create :article, title: "Not changed", content: "not changed", status: "draft"
       end
 
       it "updates article" do
