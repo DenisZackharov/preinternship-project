@@ -6,18 +6,18 @@ describe ArticlePolicy do
   describe "#edit?" do
     subject { policy.edit? }
 
-    context "when user is authenticated" do
-      let(:record) { create :article, user_id: 1 }
-      let(:user) { create :user, id: 1, confirmed_at: 1.hour.ago }
+    let(:user) { User.new(id: 2) }
 
-      it { is_expected.to eq(true) }
-    end
-
-    context "when user is not  authenticated" do
-      let(:record) { create :article }
-      let(:user) { nil }
+    context "when user is not creator of the article" do
+      let(:record) { Article.new }
 
       it { is_expected.to eq(false) }
+    end
+
+    context "when user is creator of the article" do
+      let(:record) { Article.new(user: user) }
+
+      it { is_expected.to eq(true) }
     end
   end
 end

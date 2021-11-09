@@ -35,6 +35,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
+  gem "pry-byebug"
   gem "rspec-rails", ">= 3.9.0"
   gem "slim_lint", require: false
 end

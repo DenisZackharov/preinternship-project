@@ -9,6 +9,6 @@ class ArticlePolicy < ApplicationPolicy
     private
 
   def author?
-    @user&.id == @record.user_id
+    @user.id == @record.user_id
   end
 end
