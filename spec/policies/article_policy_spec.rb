@@ -3,8 +3,8 @@ require "rails_helper"
 describe ArticlePolicy do
   subject(:policy) { ArticlePolicy.new(user, record) }
 
-  describe "#edit?" do
-    subject { policy.edit? }
+  describe "#author?" do
+    subject { policy.author? }
 
     let(:user) { User.new(id: 2) }
 

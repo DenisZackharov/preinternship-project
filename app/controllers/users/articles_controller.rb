@@ -60,7 +60,7 @@ module Users
     end
 
     def authorize_resource!
-      authorize article
+      authorize article, :author?
     end
 
     def article_params
