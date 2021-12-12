@@ -36,11 +36,11 @@ module Users
   private
 
     def create_article
-      Articles::Create.call(article: article, article_params: article_params)
+      CreateArticle.call(article: article, article_params: article_params)
     end
 
     def update_article
-      Articles::Update.call(article: article, article_params: article_params)
+      UpdateArticle.call(article: article, article_params: article_params)
     end
 
     def fetch_articles
