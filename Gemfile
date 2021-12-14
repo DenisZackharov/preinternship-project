@@ -86,5 +86,6 @@ gem "rubocop-rspec", require: false
 gem "sassc"
 gem "scss_lint", require: false
 gem "sendgrid-ruby"
+gem "simple_form"
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

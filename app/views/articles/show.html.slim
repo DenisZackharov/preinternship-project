@@ -6,7 +6,7 @@ p = article.content
  - if article.status.public?
   = form_with model: [:user, article] do |form|
     = form.hidden_field :status, value: "draft"
-    = form.submit "Make a draft"
+    = form.submit "Make a draft", class: "btn btn-warning"
  - if article.status.draft?
   = form_with model: [:user, article] do |form|
     = form.hidden_field :status, value: "public"
