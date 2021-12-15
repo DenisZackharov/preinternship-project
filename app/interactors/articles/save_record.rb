@@ -5,8 +5,13 @@ module Articles
     delegate :article, :article_params, to: :context
 
     def call
-      article.update(article_params)
-      context.fail!(error: "Article invalid") if article.invalid?
+      context.fail!(error: error_data) unless article.update(article_params)
+    end
+
+    private
+
+    def error_data
+      
     end
   end
 end
