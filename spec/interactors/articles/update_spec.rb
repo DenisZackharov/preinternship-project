@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe CreateArticle do
+describe Articles::Update do
   describe ".organized" do
     subject { described_class.organized }
 

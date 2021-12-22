@@ -3,6 +3,6 @@ shared_examples "failed interactor" do
     interactor.run
 
     expect(context).to be_failure
-    expect(context.error).to eq(error)
+    expect(context.error_data).to eq(error_data)
   end
 end

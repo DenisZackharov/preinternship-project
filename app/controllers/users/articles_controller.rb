@@ -36,11 +36,11 @@ module Users
   private
 
     def create_article
-      CreateArticle.call(article: article, article_params: article_params)
+      Articles::Create.call(article: article, article_params: article_params)
     end
 
     def update_article
-      UpdateArticle.call(article: article, article_params: article_params)
+      Articles::Update.call(article: article, article_params: article_params)
     end
 
     def fetch_articles
@@ -60,7 +60,7 @@ module Users
     end
 
     def authorize_resource!
-      authorize article, :author?
+      authorize article, :manage?
     end
 
     def article_params

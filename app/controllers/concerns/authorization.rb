@@ -9,7 +9,7 @@ module Authorization
   private
 
   def user_not_authorized
-    flash[:notice] = t(:not_authorized_for_action)
+    flash[:notice] = I18n.t("errors.messages.not_authorized_for_action")
     redirect_to(root_path)
   end
 end

@@ -30,5 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  not_authorized_for_action: "You are not authorized to perform this action."
+  errors:
+    messages:
+      not_authorized_for_action: "You are not authorized to perform this action."
+      record_invalid: "Record invalid"

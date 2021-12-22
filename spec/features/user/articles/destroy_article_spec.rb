@@ -13,7 +13,6 @@ feature "DestroyArticle" do
 
     visit user_article_path(current_user)
     click_link "Destroy"
-    page.accept_alert
 
     expect(page).to have_content("Article was successfully destroyed.")
     expect(page).to_not have_content("Denis : First")

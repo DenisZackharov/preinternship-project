@@ -1,5 +1,5 @@
 class ArticlePolicy < ApplicationPolicy
-  def author?
-    @user.id == @record.user_id
+  def manage?
+    @user&.id == @record.user_id
   end
 end

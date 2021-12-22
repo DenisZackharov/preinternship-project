@@ -44,7 +44,17 @@ describe Articles::SaveRecord do
     context "when params is invalid" do
       let(:article) { build :article }
       let(:article_params) { { title: nil, content: nil, status: nil } }
-      let(:error) { "Article invalid" }
+      let(:error_data) do
+        {
+          message: "Record invalid",
+          detail: [
+              "Title can't be blank", "Content can't be blank",
+              "Title is too short (minimum is 3 characters)",
+              "Content is too short (minimum is 3 characters)",
+              "Status can't be blank"
+            ]
+        }
+      end
 
       it_behaves_like "failed interactor"
     end
