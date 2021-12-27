@@ -1,17 +1,11 @@
-= form_with model: [:user, article] do |form|
+form action="/user/articles" method="post"
+  input type="hidden" name="authenticity_token" value="-hL9M3hoj8o5lTSh-6QrC2A3Nt2uDo2Ydr7p2kSYG8eRs7ObpAxZnxOru25J8MYXDilEzhDEVUD6QlT64yzbbA"
   div
-    = form.label :title
-    br/
-    = form.text_field :title
-    - article.errors.full_messages_for(:title).each do |message|
-      div = message
-
+    label for="article_title" Title
+    input type="text" name="article[title]" id="article_title"
   div
-    = form.label :content
-    br/
-    = form.text_area :content
-    - article.errors.full_messages_for(:content).each do |message|
-      div = message
+    label for="article_content" Content
+    input type="text" name="article[content]" id="article_content"
   div
-    = form.submit
+    input type="submit" name="commit" value="Submit"
 = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
