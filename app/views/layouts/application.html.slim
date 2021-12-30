@@ -23,13 +23,12 @@ html
           - else
             li = link_to "Sign in", new_user_session_path, class: "nav-link px-2 text-white"
             li = link_to "Sign up", new_user_registration_path, class: "nav-link px-2 text-white"
-        div.dropdown 
+        .dropdown
           = link_to "Denis Zaharov", nil, class: "nav-link px-2 text-white"
-          div.dropdown-content
+          .dropdown-content
             = link_to "Edit profile", edit_user_registration_path
-
         =< link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
-div.notice_block
+.noticeblock
   p.notice
   = notice
   p.alert

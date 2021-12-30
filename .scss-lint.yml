@@ -11,6 +11,9 @@ linters:
   StringQuotes:
     style: double_quotes
 
+  MergeableSelector:
+    enabled: false
+    
   PropertySortOrder:
     order:
       - display
