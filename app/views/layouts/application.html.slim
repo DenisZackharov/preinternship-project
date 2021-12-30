@@ -29,8 +29,9 @@ html
             = link_to "Edit profile", edit_user_registration_path
 
         =< link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
-p.notice
-= notice
-p.alert
-= alert
+div.notice_block
+  p.notice
+  = notice
+  p.alert
+  = alert
 main = yield
