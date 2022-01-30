@@ -19,11 +19,13 @@ html
           li = link_to "All Articles", articles_path, class: "nav-link px-2 text-white"
           - if user_signed_in?
             li = link_to "My Articles", user_articles_path, class: "nav-link px-2 text-white"
-            li = link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link px-2 text-white", data: { confirm: "Are you sure?" }
+            li = link_to "Sign out", destroy_user_session_path,
+                                    method: :delete, class: "nav-link px-2 text-white",
+                                    data: { confirm: "Are you sure?" }
+            li = current_user.fullname
           - else
             li = link_to "Sign in", new_user_session_path, class: "nav-link px-2 text-white"
             li = link_to "Sign up", new_user_registration_path, class: "nav-link px-2 text-white"
-        a = link_to "Denis Zaharov"
         a =< link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
 p.notice
 = notice
