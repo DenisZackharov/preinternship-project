@@ -22,18 +22,17 @@ html
             li = link_to "Sign out", destroy_user_session_path,
                                     method: :delete, class: "nav-link px-2 text-white",
                                     data: { confirm: "Are you sure?" }
-            li =
-              .dropdown
-                = link_to current_user.fullname, nil, class: "nav-link px-2 text-white"
-                 .dropdown-content
-                    = link_to "Edit profile", edit_user_registration_path
           - else
             li = link_to "Sign in", new_user_session_path, class: "nav-link px-2 text-white"
             li = link_to "Sign up", new_user_registration_path, class: "nav-link px-2 text-white"
-        =< link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
-.noticeblock
-  p.notice
-  = notice
-  p.alert
-  = alert
-main = yield
+        .dropdown
+          = link_to current_user&.fullname, nil, class: "nav-link px-2 text-white"
+          .dropdown-content
+            = link_to "Edit profile", edit_user_registration_path
+        = link_to "Contact me", new_contacts_path, class: "nav-link px-2 text-white"
+  .noticeblock
+    p.notice
+    = notice
+    p.alert
+    = alert
+  main = yield
