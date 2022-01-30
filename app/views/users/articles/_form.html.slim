@@ -7,6 +7,13 @@
       div = message
 
   div
+    = form.label :tag_list
+    br/
+    = form.text_field :tag_list
+    - article.errors.full_messages_for(:tag_list).each do |message|
+      div = message
+
+  div
     = form.label :content
     br/
     = form.text_area :content

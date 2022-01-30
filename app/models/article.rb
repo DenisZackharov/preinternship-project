@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   extend Enumerize
 
   paginates_per 5
+  acts_as_taggable_on :tags
 
   AVALIABLE_STATUSES = ["public", "draft", "archive"].freeze
 

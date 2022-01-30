@@ -10,6 +10,9 @@ module Users
     end
 
     def show
+      if params[:tag]
+        respond_with decorated_articles, location: -> { tag_path(decorated_articles.ids) }
+      end
     end
 
     def create
@@ -47,7 +50,7 @@ module Users
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :status)
+      params.require(:article).permit(:title, :content, :status, :tag_list)
     end
 
     def filter_params
