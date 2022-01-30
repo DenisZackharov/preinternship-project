@@ -6,18 +6,18 @@ describe ArticlePolicy do
   describe "#manage?" do
     subject { policy.manage? }
 
-    let(:user) { User.new(id: 2) }
+    let(:user) { build :user, id: 2  }
 
     context "when user is not creator of the article" do
-      let(:record) { Article.new }
+      let(:record) { build :article }
 
-      it { is_expected.to eq(false) }
+      it { is_expected.to be_falsey }
     end
 
     context "when user is creator of the article" do
       let(:record) { Article.new(user: user) }
 
-      it { is_expected.to eq(true) }
+      it { is_expected.to be_truthy }
     end
   end
 end
