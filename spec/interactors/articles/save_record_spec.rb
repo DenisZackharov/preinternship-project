@@ -31,7 +31,7 @@ describe Articles::SaveRecord do
 
     context "when update article" do
       let!(:article) do
-        create :article, title: "Not changed", content: "not changed", status: "draft"
+        create :article, title: "Not changed", content: "not changed", status: "public"
       end
 
       it "updates article" do
