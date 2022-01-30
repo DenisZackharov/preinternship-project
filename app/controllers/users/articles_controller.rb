@@ -13,7 +13,7 @@ module Users
     end
 
     def create
-      article.save
+      create_article
       respond_with article, location: -> { user_article_path(article.id) }
     end
 
@@ -24,7 +24,7 @@ module Users
     end
 
     def update
-      article.update(article_params)
+      update_article
       respond_with article, location: user_article_path(article.id)
     end
 
@@ -34,28 +34,37 @@ module Users
     end
 
   private
-    def filtered_articles
-      FilteredArticlesQuery.new(raw_relation, filter_params).all
+
+    def create_article
+      Articles::Create.call(article: article, article_params: article_params)
+    end
+
+    def update_article
+      Articles::Update.call(article: article, article_params: article_params)
     end
 
     def fetch_articles
       filtered_articles.order(created_at: :desc).page(params[:page])
     end
 
-    def authorize_resource!
-      authorize article
+    def filtered_articles
+      FilteredArticlesQuery.new(raw_relation, filter_params).all
     end
 
-    def article_params
-      params.require(:article).permit(:title, :content, :status)
+    def raw_relation
+      current_user.articles
     end
 
     def filter_params
       params.permit(:status).with_defaults(status: "public").to_h
     end
 
-    def raw_relation
-      current_user.articles
+    def authorize_resource!
+      authorize article, :manage?
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :content, :status)
     end
   end
 end

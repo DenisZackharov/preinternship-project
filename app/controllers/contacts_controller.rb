@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = ContactMailer.new(contact_params)
-    @contact.request = request
     if @contact.deliver
       flash.notice = "Thank you for your message. I'll get back to you soon!"
       redirect_to root_path
