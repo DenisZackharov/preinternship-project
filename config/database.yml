@@ -14,6 +14,9 @@ development:
 production:
   <<: *default
 
+staging:
+  <<: *default
+
 test: 
   username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
   password: <%= ENV.fetch("DB_PASSWORD", "") %>
