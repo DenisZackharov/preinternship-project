@@ -1,14 +1,26 @@
 h1 Articles
-ul
-  - decorated_articles.each do |article|
-    li
-      =  link_to article.article_link, user_article_path(article)
-
+div 
   = link_to "New Article", new_user_article_path, class: "btn btn-success"
   - if params[:status] != "draft"
     =< link_to "Drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
-  - if current_page?(user_articles_path(status: :draft))
-    = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
+ul
+  - decorated_articles.each do |article|
+    div.index
+      h2 = article.title
+      p 
+        | Tags: #{raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")}
+      p = article.content
+      - if policy(article).manage?
+        =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
+        =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete
+        - if article.status.public?
+          = link_to "make a Draft", user_article_draft_path(article.id), :method=> :patch, class: "btn btn-warning"
+        - if article.status.draft?
+          = link_to "publish", user_article_publish_path(article.id), :method=> :patch, class: "btn btn-success"
+      - else
+        p You don't have access to change article
+- if current_page?(user_articles_path(status: :draft))
+  = link_to "Back to articles", user_articles_path, class: "btn btn-primary"
 footer class="footer"
   div align="center"
     = paginate decorated_articles

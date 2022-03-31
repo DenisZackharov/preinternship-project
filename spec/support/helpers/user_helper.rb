@@ -6,5 +6,5 @@ module UserHelper
       fill_in "Password", with: password
 
       click_button "Log in"
-    end
+  end
 end

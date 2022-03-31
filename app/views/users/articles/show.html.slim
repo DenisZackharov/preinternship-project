@@ -1,18 +1,12 @@
-h1 = article.title
-p = article.content
-p
-  = raw "Tags: " + article.tag_list.map { |t| link_to t, tag_path(t) }.join(", ")
-- if policy(article).manage?
- p =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
- p =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete
- - if article.status.public?
-  p = form_with model: [:user, article] do |form|
-      = form.hidden_field :status, value: "draft"
-      = form.submit "Make a draft", class: "btn btn-warning"
-  p =< link_to "Drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
- - if article.status.draft?
-  p = form_with model: [:user, article] do |form|
-      = form.hidden_field :status, value: "public"
-      = form.submit "Publish", class: "btn btn-success"
-  p = link_to "Back to drafted articles", user_articles_path(status: :draft), class: "btn btn-outline-secondary"
-= link_to "Back to articles", user_articles_path, class: "btn btn-primary"
+.index
+  h1 = article.title
+  p = article.content
+  p = "Tags: #{article.tag_list}"
+  - if policy(article).manage?
+    =< link_to "Edit", edit_user_article_path(article), class: "btn btn-secondary"
+    =< link_to "Destroy", user_article_path(article), class: "btn btn-danger", method: :delete
+    - if article.status.public?
+      = link_to "make a Draft", user_article_draft_path(article.id), :method=> :patch, class: "btn btn-warning"
+    - if article.status.draft?
+      = link_to "publish", user_article_publish_path(article.id), :method=> :patch, class: "btn btn-success"
+  = link_to "Back to articles", articles_path, class: "btn btn-primary"

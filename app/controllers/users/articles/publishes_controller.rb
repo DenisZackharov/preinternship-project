@@ -6,7 +6,7 @@ module Users
       def update
         authorize article
         article.update(status: "public")
-        redirect_to articles_path
+        redirect_to user_articles_path
       end
     end
   end

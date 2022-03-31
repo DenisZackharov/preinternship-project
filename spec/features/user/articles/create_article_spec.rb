@@ -15,8 +15,8 @@ feature "CreateArticle" do
     expect(page).to have_content("First article")
     expect(page).to have_button("Publish")
 
-    click_link "Back to drafted articles"
-    expect(page).to have_link("Denis : First article")
+    click_on "Publish"
+    expect(page).to have_content("First article")
   end
 
   scenario "User create article with invalid data" do

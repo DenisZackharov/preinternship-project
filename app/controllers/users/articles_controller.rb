@@ -7,12 +7,14 @@ module Users
     before_action :authorize_resource!, only: %i[edit update destroy]
 
     def index
+      if params[:tag]
+        decorated_articles.tagged_with(params[:tag])
+      else
+        decorated_articles
+      end
     end
 
     def show
-      if params[:tag]
-        respond_with decorated_articles, location: -> { tag_path(decorated_articles.ids) }
-      end
     end
 
     def create
@@ -28,7 +30,7 @@ module Users
 
     def update
       update_article
-      respond_with article, location: user_article_path(article.id)
+      respond_with article, location: user_articles_path
     end
 
     def destroy

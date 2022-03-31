@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "preinternship#home"
   get "preinternship/about"
-  get "tags/:tag", to: "articles#show", as: :tag
+  get "tags/:tag", to: "articles#index", as: :tag
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   resource :contacts, only: %i[new create]

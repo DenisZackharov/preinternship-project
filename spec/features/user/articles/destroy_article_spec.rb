@@ -9,12 +9,13 @@ feature "DestroyArticle" do
 
   scenario "User destroy article" do
     visit user_articles_path
-    expect(page).to have_content("Denis : First")
+    expect(page).to have_content("First")
+    expect(page).to have_content("Author: Denis Zaharov")
 
     visit user_article_path(current_user)
     click_link "Destroy"
 
     expect(page).to have_content("Article was successfully destroyed.")
-    expect(page).to_not have_content("Denis : First")
+    expect(page).to_not have_content("First")
   end
 end
