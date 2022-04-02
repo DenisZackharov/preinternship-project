@@ -2,26 +2,25 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
-  password: <%= ENV.fetch("DB_PASSWORD", "12345") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "") %>
   host: <%= ENV.fetch("DB_HOST", "localhost") %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  database: preinternship_development
-  password: <%= ENV.fetch("DB_PASSWORD", "12345") %>
   <<: *default
-
+  database: preinternship_development
+  password: <%= ENV.fetch("DB_PASSWORD", "") %>
 
 production:
+  <<: *default
   database: <%= ENV.fetch("DB_NAME", "postgres") %>
   port: <%= ENV.fetch("DB_PORT", "5432") %>
-  <<: *default
 
 staging:
+  <<: *default
   database: <%= ENV.fetch("DB_NAME", "postgres") %>
   port: <%= ENV.fetch("DB_PORT", "5432") %>
-  <<: *default
 
 test:
-  database: preinternship_test
   <<: *default
+  database: preinternship_test
