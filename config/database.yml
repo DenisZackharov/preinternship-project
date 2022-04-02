@@ -12,9 +12,12 @@ development:
 
 
 production:
+  database: <%= ENV.fetch("DB_NAME", "postgres") %>
+  port: <%= ENV.fetch("DB_PORT", "5432") %>
   <<: *default
 
 staging:
+  database: <%= ENV.fetch("DB_NAME", "postgres") %>
   port: <%= ENV.fetch("DB_PORT", "5432") %>
   <<: *default
 
