@@ -26,4 +26,3 @@ staging:
 test: 
   database: preinternship_test
   <<: *default
-  
