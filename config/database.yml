@@ -15,6 +15,7 @@ production:
   <<: *default
 
 staging:
+  port: <%= ENV.fetch("DB_PORT", "5432") %>
   <<: *default
 
 test: 
