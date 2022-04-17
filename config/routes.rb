@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "preinternship#home"
+  root "articles#index"
   get "preinternship/about"
 
   devise_for :users, controllers: { registrations: "users/registrations" }

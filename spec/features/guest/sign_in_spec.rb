@@ -11,7 +11,7 @@ feature "Sign In" do
   scenario "Visitor Sign in with valid credentials" do
     sign_in("denis.zaharov@flatstack.com", "100100")
     expect(page).to have_content("Signed in successfully.")
-    expect(page).to have_content("Hello, Denis Zaharov (denis.zaharov@flatstack.com)")
+    expect(page).to have_content("Denis Zaharov")
   end
 
   scenario "Visitor Sign in with invalid credentials" do

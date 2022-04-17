@@ -12,7 +12,7 @@ feature "Update Account" do
     fill_form(:user, :new, current_password: "100100")
     click_on "Update"
 
-    expect(page).to have_content("Sergey Antonov")
+    expect(page).to have_content("Your account has been updated successfully.")
   end
 
   scenario "User enters not matched passwords" do
